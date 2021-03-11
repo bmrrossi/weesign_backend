@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,12 +29,18 @@ public class ModelController {
 	@ApiOperation(value = "Get all models on weesign")
 	@GetMapping("/all")
 	public List<Model> getAllModels() {
-		return repository.findAll();
+		return this.repository.findAll();
 	}
 	
 	@ApiOperation(value = "Delete model by Id")
 	@DeleteMapping("/{id}")
 	public void deleteModel(@PathVariable Long id) {
-		repository.deleteById(id);
+		this.repository.deleteById(id);
+	}
+	
+	@ApiOperation(value = "Create a new Model")
+	@PostMapping("/create")
+	public void createModel(@RequestBody Model model) {
+		this.repository.save(model);
 	}
 }

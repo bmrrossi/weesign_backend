@@ -25,8 +25,10 @@ public class Contact implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String fullname;
+	private String alias;
 	private String email;
 	private String company_name;
+	private String phone;
 	@CreatedBy
 	@OneToOne
 	private Account created_by_account;

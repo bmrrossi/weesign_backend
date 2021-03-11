@@ -30,6 +30,8 @@ public class Document implements Serializable {
 	private int size;
 	private String extension;
 	private boolean signed;
+	private boolean trash;
+	private String document_path;
 	@OneToOne
 	private Model linked_model;
 	@CreatedDate

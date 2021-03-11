@@ -27,6 +27,7 @@ public class Model implements Serializable {
 	private String name;
 	private String size;
 	private String extension;
+	private boolean trash;
 	@CreatedBy
 	@OneToOne
 	private Account created_by_account;
